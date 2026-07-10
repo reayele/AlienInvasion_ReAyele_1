@@ -1,0 +1,24 @@
+# Byte-compiled files
+__pycache__/
+*.py[cod]
+
+# Virtual environments
+venv/
+.env/
+
+# VS Code
+.vscode/
+
+# macOS
+.DS_Store
+
+# Python cache
+*.pyo
+*.pyd
+
+# pytest
+.pytest_cache/
+
+# Coverage reports
+.coverage
+htmlcov/
