@@ -1,6 +1,11 @@
 ## Alien Invasion 
-This project is a customized version of the Alien Invasion game.
-My goal is to modify parts ofthe game by adding new features and custom assets. 
+For project 2 I have decided to do a customized version of the Alien Invasion game. I am choosing to do Track 2: Custom Assets and I will be customizing the appearance of the game by changing the images while keeping the gameplay still the same.
 
-## Track: 
-For this project, I think I have decided to do the Custom assets. So I will customize my game by replacing the way the ship, bullet, and the background are with my own assets while keeping the main idea of the game. 
+## Asset resources 
+I plan to use free game assets from: 
+- https://kenney.nl/assets
+- https://opengameart.org
+- https://itch.io/game-assets/free
+
+## Planned Fleet Formation 
+For the fleet formation, I plan to arrange the alien fleet in a v-shaped formation, instead of a rectangular formation. 
