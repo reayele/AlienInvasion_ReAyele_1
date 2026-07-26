@@ -1,6 +1,7 @@
 import sys
 import pygame
 from settings import Settings
+from ship import Ship
 
 
 class AlienInvasion:
@@ -11,6 +12,7 @@ class AlienInvasion:
         self.screen = pygame.display.set_mode(
             (self.settings.screen_width, self.settings.screen_height)
         )
+        self.ship = Ship(self)
         pygame.display.set_caption("Galaxy Defender - Track 2")
 
     def run_game(self):
@@ -21,6 +23,8 @@ class AlienInvasion:
                     pygame.quit()
                     sys.exit()
 
+            self.screen.fill(self.settings.bg_color)
+            self.ship.draw()
             pygame.display.flip()
             self.clock.tick(60)
 
