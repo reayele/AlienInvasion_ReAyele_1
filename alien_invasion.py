@@ -4,7 +4,7 @@ import pygame
 from settings import Settings
 from ship import Ship
 from bullet import Bullet
-
+from alien import Alien 
 class AlienInvasion:
     """The overall class that manges the games behavior"""
     def __init__(self):
@@ -32,6 +32,7 @@ class AlienInvasion:
 
         self.ship = Ship(self)
         self.bullets = pygame.sprite.Group()
+        self._create_fleet()
 
     def run_game(self):
         """Start the game's main loop"""
