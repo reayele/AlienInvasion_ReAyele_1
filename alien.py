@@ -14,15 +14,24 @@ class Alien(Sprite):
             / "images"
             / "meteor.png")
         
-        self.image = pygame.Surface((70, 70))
-        self.image.fill((255, 0, 0))
-        self.rect = self.image.get_rect()
-        self.rect.x = 50
-        self.rect.y = 50
-        self.x = float(self.rect.x)
         self.image = pygame.image.load(image_path).convert_alpha()
         self.image = pygame.transform.scale(self.image, (45, 45))
         self.image = pygame.transform.rotate(self.image, 70)
+        self.rect = self.image.get_rect()
+        self.rect.x = 50 
+        self.rect.y = 50
+        self.x = float(self.rect.x)
     def update(self):
-        self.x += self.settings.alien_speed 
+        """Moves the metero right or left """
+        self.x += ( 
+            self.settings.alien_speed 
+            * self.settings.fleet_direction
+        )
         self.rect.x = self.x
+    def check_edges(self):
+        screen_rect = self.screen.get_rect()
+
+        return(
+            self.rect.right >= screen_rect.right
+            or self.rect.left <= 0 
+        )

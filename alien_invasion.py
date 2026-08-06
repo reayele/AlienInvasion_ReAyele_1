@@ -5,6 +5,13 @@ from settings import Settings
 from ship import Ship
 from bullet import Bullet
 from alien import Alien 
+"""
+Program Name: Alien Invasion
+Author: Rediet Ayele
+Purpose: Alien invasion game but instead a dino extinction
+Starter Code: Python Crash Course, 3rd Edition by Eric Matthes
+Date: August 5 2026
+"""
 class AlienInvasion:
     """The overall class that manges the games behavior"""
     def __init__(self):

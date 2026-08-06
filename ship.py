@@ -17,7 +17,7 @@ class Ship:
         )
 
         self.image = pygame.image.load(image_path).convert_alpha()
-        self.image = pygame.transform.scale(self.image, (350,350))
+        self.image = pygame.transform.scale(self.image, (250,250))
         self.rect = self.image.get_rect()
         self.rect.midbottom = self.screen_rect.midbottom
         self.x = float(self.rect.x)
@@ -35,3 +35,7 @@ class Ship:
     def blitme(self):
         """Draws the ship on the screen"""
         self.screen.blit(self.image, self.rect)
+    def center_ship(self):
+        """Centers the Dino"""
+        self.rect.midbottom = self.screen_rect.midbottom 
+        self.x = float(self.rect.x)
