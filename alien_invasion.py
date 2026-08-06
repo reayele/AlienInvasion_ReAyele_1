@@ -41,7 +41,7 @@ class AlienInvasion:
         while True:
             self._check_events()
             self.ship.update()
-            self.bullets.update()
+            self._update_bullets()
             self._update_screen()
             self.clock.tick(60)
 
@@ -121,9 +121,19 @@ class AlienInvasion:
         self.ship.blitme()
         self.aliens.draw(self.screen)
         pygame.display.flip()
+    
+    def _update_bullets(self):
+        self.bullets.update()
+        for bullet in self.bullets.copy():
+            if bullet.rect.bottom <= 0:
+                self.bullets.remove(bullet)
+        pygame.sprite.groupcollide(
+            self.bullets,
+            self.aliens,
+            True, 
+            True
+        )
         
-
-
 if __name__ == "__main__":
     ai = AlienInvasion()
     ai.run_game()
