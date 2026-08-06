@@ -8,9 +8,9 @@ from alien import Alien
 """
 Program Name: Alien Invasion
 Author: Rediet Ayele
-Purpose: Alien invasion game but instead a dino extinction
+Purpose: Alien invasion game but instead a dino extinction, main file. 
 Starter Code: Python Crash Course, 3rd Edition by Eric Matthes
-Date: August 5 2026
+Date: August 5, 2026
 """
 class AlienInvasion:
     """The overall class that manges the games behavior"""

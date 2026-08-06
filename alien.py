@@ -1,7 +1,13 @@
 from pathlib import Path
 import pygame
 from pygame.sprite import Sprite
-
+"""
+Program Name: Alien Invasion
+Author: Rediet Ayele
+Purpose: Controls the aliens/meteors 
+Starter Code: Python Crash Course, 3rd Edition by Eric Matthes
+Date: August 5, 2026
+"""
 class Alien(Sprite):
     def __init__(self, ai_game):
         super().__init__()

@@ -1,5 +1,12 @@
 from pathlib import Path
 import pygame
+"""
+Program Name: Alien Invasion
+Author: Rediet Ayele
+Purpose: controls the main ship/dino
+Starter Code: Python Crash Course, 3rd Edition by Eric Matthes
+Date: August 5, 2026
+"""
 
 class Ship:
     """A class that manges the players custom ship"""

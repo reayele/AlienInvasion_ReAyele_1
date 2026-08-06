@@ -1,3 +1,10 @@
+"""
+Program Name: Alien Invasion
+Author: Rediet Ayele
+Purpose: The settings file
+Starter Code: Python Crash Course, 3rd Edition by Eric Matthes
+Date: August 5, 2026
+"""
 class Settings:
     """Class stores the game settings"""
     def __init__(self):
