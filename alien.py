@@ -6,6 +6,7 @@ class Alien(Sprite):
     def __init__(self, ai_game):
         super().__init__()
         self.screen = ai_game.screen
+        self.settings = ai_game.settings
         project_folder = Path(__file__).resolve().parent
         image_path = (
             project_folder
@@ -22,3 +23,6 @@ class Alien(Sprite):
         self.image = pygame.image.load(image_path).convert_alpha()
         self.image = pygame.transform.scale(self.image, (45, 45))
         self.image = pygame.transform.rotate(self.image, 70)
+    def update(self):
+        self.x += self.settings.alien_speed 
+        self.rect.x = self.x

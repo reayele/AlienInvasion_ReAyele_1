@@ -42,9 +42,22 @@ class AlienInvasion:
             self._check_events()
             self.ship.update()
             self._update_bullets()
+            self._update_aliens()
             self._update_screen()
             self.clock.tick(60)
+    def _update_aliens(self):
+        self.aliens.update()
+        if pygame.sprite.spritecollideany(self.ship, self.aliens):
+            self._ship_hit()
+    def _ship_hit(self):
+        self.bullets.empty()
+        self.aliens.empty()
+        self._create_fleet()
+        self.ship.center_ship()
 
+    def center_ship(self):
+        self.rect.midbottom = self.screen_rect.idbottom
+        self.x = float(self.rect.x)
     def _check_events(self):
         """check for game events"""
         for event in pygame.event.get():
