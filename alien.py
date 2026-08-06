@@ -13,8 +13,12 @@ class Alien(Sprite):
             / "images"
             / "meteor.png")
         
-        self.image = pygame.image.load(image_path).convert_alpha()
-        self.rect = self.iage.get_rect()
-        self.rect.x = self.rect.width 
-        self.rect.y = self.rect.height 
+        self.image = pygame.Surface((70, 70))
+        self.image.fill((255, 0, 0))
+        self.rect = self.image.get_rect()
+        self.rect.x = 50
+        self.rect.y = 50
         self.x = float(self.rect.x)
+        self.image = pygame.image.load(image_path).convert_alpha()
+        self.image = pygame.transform.scale(self.image, (45, 45))
+        self.image = pygame.transform.rotate(self.image, 70)

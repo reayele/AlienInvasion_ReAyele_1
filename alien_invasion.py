@@ -80,23 +80,32 @@ class AlienInvasion:
         new_bullet = Bullet(self)
         self.bullets.add(new_bullet)
     def _create_fleet(self):
-        alien = Alien(self)
-        alien_width, alien_height = alien.rect.size
-        current_x = alien_width
-        current_y = alien_height
+        positions = [
+            (150, 30),
+            (280, 45),
+            (410, 35),
+            (540, 50),
+            (670, 40),
+            (800, 55),
+            (930, 35),
 
-        while current_y < (
-            self.settings.screen_height - 3 * alien_height
-        ):
-            while current_x < (
-            self.settings.screen_width - 2 * alien_width
-            ):
-                self._create_alien(current_x, current_y)
-                current_x += 2 * alien_width
-            current_x = alien_width
-            current_y += 2 * alien_height
+            (220, 110),
+            (360, 125),
+            (500, 115),
+            (640, 130),
+            (780, 120),
+            (920, 135),
+
+            (300, 190),
+            (450, 205),
+            (600, 195),
+            (750, 210),
+            (900, 200),
+        ]
+
+        for x, y in positions:
+            self._create_alien(x, y)
     def _create_alien(self, x_position, y_position):
-    
         new_alien = Alien(self)
         new_alien.x = x_position
         new_alien.rect.x = x_position
