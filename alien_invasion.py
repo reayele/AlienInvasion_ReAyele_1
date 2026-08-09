@@ -5,6 +5,7 @@ from settings import Settings
 from ship import Ship
 from bullet import Bullet
 from alien import Alien 
+from button import Button
 """
 Program Name: Alien Invasion
 Author: Rediet Ayele
@@ -42,14 +43,17 @@ class AlienInvasion:
 
         self.aliens = pygame.sprite.Group()
         self._create_fleet()
+        self.game_active = False 
+        self.play_button = Button(self, "Play")
 
     def run_game(self):
         """Start the game's main loop"""
         while True:
             self._check_events()
-            self.ship.update()
-            self._update_bullets()
-            self._update_aliens()
+            if self.game_active:
+                self.ship.update()
+                self._update_bullets()
+                self._update_aliens()
             self._update_screen()
             self.clock.tick(60)
     def _update_aliens(self):
@@ -145,8 +149,9 @@ class AlienInvasion:
             bullet.draw_bullet()
         self.ship.blitme()
         self.aliens.draw(self.screen)
+        if not self.game_active:
+            self.play_button.draw_button()
         pygame.display.flip()
-    
     def _update_bullets(self):
         """Update lasers and check for meteor collisons"""
         self.bullets.update()
