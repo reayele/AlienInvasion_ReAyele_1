@@ -7,6 +7,7 @@ from bullet import Bullet
 from alien import Alien 
 from button import Button
 from game_stats import GameStats
+from scoreboard import ScoreBoard
 """
 Program Name: Alien Invasion
 Author: Rediet Ayele
@@ -28,6 +29,7 @@ class AlienInvasion:
         )
         
         self.stats = GameStats(self)
+        self.sb = ScoreBoard(self)
   
         pygame.display.set_caption("Extinction? Not Today. - Track 2")
 
@@ -167,6 +169,7 @@ class AlienInvasion:
             bullet.draw_bullet()
         self.ship.blitme()
         self.aliens.draw(self.screen)
+        self.sb.show_score()
         if not self.game_active:
             self.play_button.draw_button()
         pygame.display.flip()
