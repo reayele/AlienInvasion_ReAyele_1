@@ -6,6 +6,7 @@ from ship import Ship
 from bullet import Bullet
 from alien import Alien 
 from button import Button
+from game_stats import GameStats
 """
 Program Name: Alien Invasion
 Author: Rediet Ayele
@@ -25,7 +26,9 @@ class AlienInvasion:
         self.screen = pygame.display.set_mode(
             (self.settings.screen_width, self.settings.screen_height)
         )
-
+        
+        self.stats = GameStats(self)
+  
         pygame.display.set_caption("Extinction? Not Today. - Track 2")
 
         project_folder = Path(__file__).resolve().parent
@@ -70,6 +73,9 @@ class AlienInvasion:
         self.bullets.empty()
         self.aliens.empty()
         self._create_fleet()
+        self.ship.center_ship()
+        self.game_active = False
+        pygame.mouse.set_visible (True )
 
     def _check_events(self):
         """check for game events"""
@@ -86,8 +92,13 @@ class AlienInvasion:
                 self._check_play_button(mouse_pos)
     def _check_play_button(self, mouse_pos):
         button_clicked = self.play_button.rect.collidepoint(mouse_pos)
-        if button_clicked and not self.game_active: 
+        if button_clicked and not self.game_active:
+            self.bullets.empty()
+            self.aliens.empty()
+            self._create_fleet()
+            self.ship.center_ship()
             self.game_active = True
+            pygame.mouse.set_visible(False)
 
     def _check_keydown_events(self, event):
         """Checks when a key is pressed"""
@@ -171,6 +182,10 @@ class AlienInvasion:
             True, 
             True
         )
+        if not self.aliens:
+            self.bullets.empty()
+            self._create_fleet()
+
     def _check_fleet_edges(self):
         """Checks if any of the meteors reaches an edge"""
         for alien in self.aliens.sprites():
