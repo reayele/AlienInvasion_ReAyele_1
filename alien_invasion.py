@@ -179,22 +179,26 @@ class AlienInvasion:
         for bullet in self.bullets.copy():
             if bullet.rect.bottom <= 0:
                 self.bullets.remove(bullet)
-        pygame.sprite.groupcollide(
+        collisions = pygame.sprite.groupcollide(
             self.bullets,
             self.aliens,
             True, 
             True
         )
+        if collisions:
+            for aliens in collisions.values():
+                self.stats.score += 50 * len(aliens)
+            self.sb.prep_score()
         if not self.aliens:
             self.bullets.empty()
             self._create_fleet()
 
     def _check_fleet_edges(self):
-        """Checks if any of the meteors reaches an edge"""
+        """Check if any meteor reaches an edge."""
         for alien in self.aliens.sprites():
-                if alien.check_edges():
-                    self._change_fleet_direction()
-                    break 
+            if alien.check_edges():
+                self._change_fleet_direction()
+                break
     def _change_fleet_direction(self):
         """Moves the meteors down and changes the meteors direction"""
         for alien in self.aliens.sprites():
