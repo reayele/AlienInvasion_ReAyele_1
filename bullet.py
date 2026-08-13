@@ -1,13 +1,17 @@
-from pathlib import Path
-import pygame
-from pygame.sprite import Sprite
 """
 Program Name: Alien Invasion
 Author: Rediet Ayele
 Purpose: Controls the bullets/rocks being thrown at the meteors
 Starter Code: Python Crash Course, 3rd Edition by Eric Matthes
 Date: August 5, 2026
+
+Asset Attribution: 
+rock image: rock.png
+Link: [https://pngtree.com/freepng/large-piece-of-rough-textured-brown-rock_20609989.html]
 """
+from pathlib import Path 
+import pygame
+from pygame.sprite import Sprite
 class Bullet(Sprite):
     """A class that manages the laser"""
     def __init__(self, ai_game):

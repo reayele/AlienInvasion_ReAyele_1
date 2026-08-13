@@ -8,6 +8,7 @@ Date: August 5, 2026
 class Settings:
     """Class stores the game settings"""
     def __init__(self):
+        """The games settings"""
         self.screen_width = 1200
         self.screen_height = 800
         self.bg_color = (230, 230, 230)
@@ -28,6 +29,7 @@ class Settings:
         self.bullet_speed = 2.5
 
     def increase_speed(self):
+        """increases the games speed once you get to a new level"""
         self.ship_speed *= self.speedup_scale 
         self.bullet_speed *= self.speedup_scale 
         self.alien_speed *= self.speedup_scale

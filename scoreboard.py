@@ -3,6 +3,10 @@ Program Name: Scoreboard
 Author: Rediet Ayele
 Purpose: the scoring of the game 
 Date: August 10, 2026
+
+Asset Attribution: 
+Font: Bitcount Prop Single 
+Link: [https://fonts.google.com/selection?preview.script=Latn]
 """
 import pygame.font
 from pygame.sprite import Group
@@ -10,7 +14,9 @@ from ship import Ship
 import pygame
 from pathlib import Path
 class ScoreBoard: 
+    """Displays the games scoring"""
     def __init__(self, ai_game):
+        """turns the score into an image"""
         self.ai_game = ai_game
         self.screen = ai_game.screen
         self.screen_rect = self.screen.get_rect()
@@ -32,6 +38,7 @@ class ScoreBoard:
         self.prep_level()
         self.prep_ships()
     def prep_score(self):
+        """Turns the score into an image"""
         score_str = str(self.stats.score)
         self.score_image = self.font.render(
             score_str, 
@@ -68,6 +75,7 @@ class ScoreBoard:
         self.level_rect.right = self.score_rect.right
         self.level_rect.top = self.score_rect.bottom + 10
     def show_score(self):
+        """draws the score, level, lives and the highscore"""
         self.screen.blit(
             self.score_image, 
             self.score_rect
@@ -82,10 +90,12 @@ class ScoreBoard:
         )
         self.ships.draw(self.screen)
     def check_high_score(self):
+        """checks for a new highscore"""
         if self.stats.score > self.stats.high_score:
             self.stats.high_score = self.stats.score
             self.prep_high_score()
     def prep_ships(self):
+        """shows how many lived the dino has"""
         self.ships = Group()
         for ship_number in range(self.stats.ships_left):
             ship = Ship(self.ai_game)

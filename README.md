@@ -3,9 +3,10 @@ For project 2 I have decided to do a customized version of the Alien Invasion ga
 
 ## Asset resources 
 I plan to use free game assets from: 
-- https://kenney.nl/assets
-- https://opengameart.org
-- https://itch.io/game-assets/free
-
+- Kenney: https://kenney.nl/assets
+- OpenGameArt: https://opengameart.org
+- itch.io: https://itch.io/game-assets/free
+- Pixabay: https://pixabay.com/
+- Google Fonts: https://fonts.google.com/
 ## Planned Fleet Formation 
 For the fleet formation, I plan to arrange the alien fleet in a v-shaped formation, instead of a rectangular formation. 

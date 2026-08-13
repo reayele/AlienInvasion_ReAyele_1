@@ -4,6 +4,11 @@ Author: Rediet Ayele
 Purpose: Alien invasion game but instead a dino extinction, main file. 
 Starter Code: Python Crash Course, 3rd Edition by Eric Matthes
 Date: August 5, 2026
+
+Asset Attribution: 
+- Game music: Pavel Bekriov, Pixabay, [https://pixabay.com/music/video-games-game-game-music-573991/]
+- Throw sound: Epic Stock Media, [https://uppbeat.io/sfx/weapon-throw/9434/25272]
+- Impact sound: Came with file when forked over
 """
 import sys
 from pathlib import Path
@@ -100,7 +105,7 @@ class AlienInvasion:
             self._ship_hit()
     def _ship_hit(self):
         """Resests the game after a meteor hits the dino."""
-        if self.stats.ships_left > 0:
+        if self.stats.ships_left > 1:
             self.stats.ships_left -= 1
             self.sb.prep_ships()
             self.bullets.empty()
@@ -126,6 +131,7 @@ class AlienInvasion:
                 mouse_pos = pygame.mouse.get_pos()
                 self._check_play_button(mouse_pos)
     def _check_play_button(self, mouse_pos):
+        """starts a new game, when they press play"""
         button_clicked = self.play_button.rect.collidepoint(mouse_pos)
         if button_clicked and not self.game_active:
             self.settings.initialize_dynamic_settings()

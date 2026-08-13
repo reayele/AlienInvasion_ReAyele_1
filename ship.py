@@ -1,13 +1,16 @@
-from pathlib import Path
-import pygame
 """
 Program Name: Alien Invasion
 Author: Rediet Ayele
 Purpose: controls the main ship/dino
 Starter Code: Python Crash Course, 3rd Edition by Eric Matthes
 Date: August 5, 2026
-"""
 
+Asset Attribution: 
+Diosaur image: dino.png
+Link: [https://pngtree.com/freepng/jurassic-theme-park-with-dinosaurs-prehistoric-dinosaur-tyrannosaurus-funny_15415941.html]
+"""
+from pathlib import Path
+import pygame
 from pygame.sprite import Sprite 
 class Ship(Sprite):
     """A class that manges the players custom ship"""
