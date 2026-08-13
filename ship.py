@@ -8,10 +8,12 @@ Starter Code: Python Crash Course, 3rd Edition by Eric Matthes
 Date: August 5, 2026
 """
 
-class Ship:
+from pygame.sprite import Sprite 
+class Ship(Sprite):
     """A class that manges the players custom ship"""
     def __init__(self, ai_game):
         """Creats the players ship"""
+        super().__init__()
         self.screen = ai_game.screen
         self.settings = ai_game.settings
         self.screen_rect = ai_game.screen.get_rect()
