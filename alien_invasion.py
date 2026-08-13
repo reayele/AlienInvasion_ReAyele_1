@@ -1,3 +1,10 @@
+"""
+Program Name: Alien Invasion
+Author: Rediet Ayele
+Purpose: Alien invasion game but instead a dino extinction, main file. 
+Starter Code: Python Crash Course, 3rd Edition by Eric Matthes
+Date: August 5, 2026
+"""
 import sys
 from pathlib import Path
 import pygame
@@ -8,13 +15,7 @@ from alien import Alien
 from button import Button
 from game_stats import GameStats
 from scoreboard import ScoreBoard
-"""
-Program Name: Alien Invasion
-Author: Rediet Ayele
-Purpose: Alien invasion game but instead a dino extinction, main file. 
-Starter Code: Python Crash Course, 3rd Edition by Eric Matthes
-Date: August 5, 2026
-"""
+
 class AlienInvasion:
     """The overall class that manges the games behavior"""
     def __init__(self):

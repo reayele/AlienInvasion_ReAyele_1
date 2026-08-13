@@ -8,6 +8,7 @@ import pygame.font
 from pygame.sprite import Group
 from ship import Ship
 import pygame
+from pathlib import Path
 class ScoreBoard: 
     def __init__(self, ai_game):
         self.ai_game = ai_game
@@ -16,7 +17,16 @@ class ScoreBoard:
         self.settings = ai_game.settings 
         self.stats = ai_game.stats 
         self.text_color = (255, 255, 255)
-        self.font = pygame.font.SysFont(None, 48)
+        project_folder = Path(__file__).resolve().parent
+        font_path = (
+            project_folder
+            / "Assets"
+            / "Fonts"
+            / "SilkScreen"
+            / "BitcountPropSingle-VariableFont_CRSV,ELSH,ELXP,slnt,wght.ttf"
+        )
+
+        self.font = pygame.font.Font(font_path, 48)
         self.prep_score()
         self.prep_high_score()
         self.prep_level()

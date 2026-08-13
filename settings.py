@@ -18,7 +18,7 @@ class Settings:
         self.bullet_color = (60, 50, 60)
         self.bullets_allowed = 3
         self.fleet_drop_speed = 30
-        self.speedup_scale = 1.1
+        self.speedup_scale = 1.25
         self.initialize_dynamic_settings()
     def initialize_dynamic_settings(self):
         """Set the settings that can change during the game."""
