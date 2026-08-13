@@ -9,4 +9,4 @@ I plan to use free game assets from:
 - Pixabay: https://pixabay.com/
 - Google Fonts: https://fonts.google.com/
 ## Planned Fleet Formation 
-For the fleet formation, I plan to arrange the alien fleet in a v-shaped formation, instead of a rectangular formation. 
+For the fleet formation, I plan to arrange the alien fleet in a v-shaped formation, instead of a rectangular formation.
