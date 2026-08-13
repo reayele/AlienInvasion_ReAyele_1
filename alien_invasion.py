@@ -51,7 +51,34 @@ class AlienInvasion:
         self._create_fleet()
         self.game_active = False 
         self.play_button = Button(self, "Play")
+        music_path = (
+            project_folder
+            / "Assets"
+            / "sound"
+            / "paulyudin-game-game-music-573991.mp3"
+)
 
+        throw_sound_path = (
+            project_folder
+            / "Assets"
+            / "sound"
+            / "weapon-throw-epic-stock-media-2-2-00-00.mp3"
+)
+
+        impact_sound_path = (
+            project_folder
+            / "Assets"
+            / "sound"
+            / "impactSound.mp3"
+)
+
+        self.throw_sound = pygame.mixer.Sound(throw_sound_path)
+        self.impact_sound = pygame.mixer.Sound(impact_sound_path)
+
+        pygame.mixer.music.load(music_path)
+        pygame.mixer.music.set_volume(0.3)
+        pygame.mixer.music.play(-1)
+    
     def run_game(self):
         """Start the game's main loop"""
         while True:
@@ -137,6 +164,7 @@ class AlienInvasion:
         if len(self.bullets) < self.settings.bullets_allowed:
             new_bullet = Bullet(self)
             self.bullets.add(new_bullet)
+            self.throw_sound.play()
     def _create_fleet(self):
         """creats the meteor shower"""
         positions = [
@@ -201,6 +229,7 @@ class AlienInvasion:
                 self.stats.score += 50 * len(aliens)
             self.sb.prep_score()
             self.sb.check_high_score()
+            self.impact_sound.play()
         if not self.aliens:
             self.bullets.empty()
             self._create_fleet()
