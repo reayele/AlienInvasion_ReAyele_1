@@ -72,12 +72,17 @@ class AlienInvasion:
             self._ship_hit()
     def _ship_hit(self):
         """Resests the game after a meteor hits the dino."""
-        self.bullets.empty()
-        self.aliens.empty()
-        self._create_fleet()
-        self.ship.center_ship()
-        self.game_active = False
-        pygame.mouse.set_visible (True )
+        if self.stats.ships_left > 0:
+            self.stats.ships_left -= 1
+            self.sb.prep_ships()
+            self.bullets.empty()
+            self.aliens.empty()
+            self._create_fleet()
+            self.ship.center_ship()
+            pygame.time.wait(500)
+        else: 
+            self.game_active = False 
+            pygame.mouse.set_visible(True)
 
     def _check_events(self):
         """check for game events"""
@@ -95,11 +100,15 @@ class AlienInvasion:
     def _check_play_button(self, mouse_pos):
         button_clicked = self.play_button.rect.collidepoint(mouse_pos)
         if button_clicked and not self.game_active:
+            self.settings.initialize_dynamic_settings()
+            self.stats.reset_stats()
+            self.sb.prep_score()
+            self.sb.prep_level()
             self.bullets.empty()
             self.aliens.empty()
             self._create_fleet()
             self.ship.center_ship()
-            self.game_active = True
+            self.game_active = True 
             pygame.mouse.set_visible(False)
 
     def _check_keydown_events(self, event):
